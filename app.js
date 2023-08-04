@@ -1,5 +1,5 @@
 //jshint esversion:6
-
+require("dotenv").config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 const _ = require("lodash")
 const app = express();
 
-mongoose.connect("mongodb+srv://pthnhung:nh14072002@clusterie213.yj32h3e.mongodb.net/ToDoListDB")
+mongoose.connect(process.env.MONGO_CONNECT_STRING)
 
 const itemSchema = new mongoose.Schema({
   name: String
